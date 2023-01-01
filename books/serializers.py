@@ -1,7 +1,5 @@
 from rest_framework import serializers
-
-from accounts.models import UserAddress
-from .models import *
+from .models import Book, Author, Category
 import datetime
 
 
@@ -26,8 +24,3 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class AddressSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = UserAddress
-        fields = '__all__'

@@ -5,7 +5,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 # Create your models here.
 from books.models import Book
-from books.serializers import AddressSerializer
 
 
 class CustomUserManager(BaseUserManager):
@@ -66,7 +65,7 @@ class Orders(models.Model):
 class Sales(models.Model):
     order = models.ForeignKey(Orders, on_delete=models.CASCADE)
     sender = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
-    shipping_key = models.CharField(11)
+    shipping_key = models.CharField(max_length=11)
 
 
 class OrderDetail(models.Model):
